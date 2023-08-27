@@ -21,7 +21,7 @@
 </head>
 <body>
     <div class="text-muted" id="center">
-        <div class="text-center"><li class="material-icons text-danger" style="font-size:100px;">warning</li></div>
+        <div class="text-center"><li class="material-icons text-muted" style="font-size:100px;">warning</li></div>
         <div>لايمكنك الوصول لهذه الصفحة</div>
     </div>
 </body>
