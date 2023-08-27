@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main home</title>
-</head>
-<body>
+@extends('main.layout')
+@section('title','الصفحة الرئيسية')
+@section('body')
 
-</body>
-</html>
+@endsection
