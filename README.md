@@ -1,1 +1,1 @@
-<p><strong><a href="https://mofareh.net" style="font-size:48px;color:red;text-decoration: none;" target="_blank">MF BACKEND</a></strong></p>
+<p style="text-align:center"><strong><a href="https://mofareh.net" style="font-size:48px;color:red;text-decoration: none;" target="_blank">MF BACKEND</a></strong></p>

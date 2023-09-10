@@ -13,29 +13,35 @@
     @section('head')
     @show
 </head>
-<body dir="rtl">
+<body dir="rtl" class="p-0 m-0">
     
-    <div class="container-fluid vh-100">
-        <div class="row h-100">
-            <div class="col-md-4 col-lg-3 col-xl-2 d-none d-md-block shadow-lg bg-light h-100 translate-1s pe-0 ps-0">
+    <div class="container-fluid vh-100 p-0 m-0">
+        <div class="row h-100 p-0 m-0">
+            <div class="col-md-4 col-lg-3 col-xl-2 d-none d-md-block shadow-lg h-100 translate-1s pe-0 ps-0" style="background-image: linear-gradient(to bottom right, #45526e,  #45526e, #7888ab);">
                 <div class="d-flex justify-content-center align-items-center text-dark fw-bold  fs-5" style="height:60px">إسم المتجر</div>
                 <div class="d-flex justify-content-center p-2 pt-0 pb-0">
                     <ul class="mt-5 p-0 w-100 m-0" style="list-style:'none'">
-                        <li class="bg-white w-100 rounded mt-2 p-2 fs-6 fw-bold d-flex hand shadow-sm" link="{{ route('dashboard.home') }}" onclick="openTab(this)">{{__('dashboard.pages-name.home')}}</li> 
+                        <li class=" w-100 mt-2 p-3 pt-2 pb-2 fs-6 fw-bold d-flex hand shadow-sm border-end border-5 @if(Route::currentRouteName() == 'dashboard.home') border-dark bg-light @else bg-white @endif" link="{{ route('dashboard.home') }}" onclick="openTab(this)">{{__('dashboard.pages-name.home')}}</li> 
                         @canany(['users view', 'users create','users edit', 'users delete'])
-                            <li class="bg-white w-100 rounded mt-3 p-2 fs-6 fw-bold d-flex hand shadow-sm" link="{{ route('dashboard.users') }}" onclick="openTab(this)">{{__('dashboard.pages-name.users')}}</li> 
+                            <li class="w-100 mt-3 p-3 pt-2 pb-2 fs-6 fw-bold d-flex hand shadow-sm border-end border-5 @if(Route::currentRouteName() == 'dashboard.users') border-dark bg-light @else bg-white @endif" link="{{ route('dashboard.users') }}" onclick="openTab(this)">{{__('dashboard.pages-name.users')}}</li> 
                         @endcanany
                         @canany(['roles view', 'roles create','roles edit', 'roles delete'])
-                            <li class="bg-white w-100 rounded mt-3 p-2 fs-6 fw-bold d-flex hand shadow-sm" link="{{ route('dashboard.roles') }}" onclick="openTab(this)">{{__('dashboard.pages-name.roles')}}</li> 
+                            <li class="w-100 mt-3 p-3 pt-2 pb-2 fs-6 fw-bold d-flex hand shadow-sm border-end border-5 @if(Route::currentRouteName() == 'dashboard.roles') border-dark bg-light @else bg-white @endif" link="{{ route('dashboard.roles') }}" onclick="openTab(this)">{{__('dashboard.pages-name.roles')}}</li> 
                         @endcanany
                         @canany(['permissions view', 'permissions create','permissions edit', 'permissions delete'])
-                            <li class="bg-white w-100 rounded mt-3 p-2 fs-6 fw-bold d-flex hand shadow-sm" link="{{ route('dashboard.permissions') }}" onclick="openTab(this)">{{__('dashboard.pages-name.permissions')}}</li> 
+                            <li class="w-100 mt-3 p-3 pt-2 pb-2 fs-6 fw-bold d-flex hand shadow-sm border-end border-5 @if(Route::currentRouteName() == 'dashboard.permissions') border-dark bg-light @else bg-white @endif" link="{{ route('dashboard.permissions') }}" onclick="openTab(this)">{{__('dashboard.pages-name.permissions')}}</li> 
+                        @endcanany
+                        @canany(['payment view'])
+                            <li class="w-100 mt-3 p-3 pt-2 pb-2 fs-6 fw-bold d-flex hand shadow-sm border-end border-5 @if(Route::currentRouteName() == 'dashboard.payment') border-dark bg-light @else bg-white @endif" link="{{ route('dashboard.payment') }}" onclick="openTab(this)">إدارة المدفوعات</li> 
+                        @endcanany
+                        @canany(['files view', 'files create','files edit', 'files delete'])
+                            <li class="w-100 mt-3 p-3 pt-2 pb-2 fs-6 fw-bold d-flex hand shadow-sm border-end border-5 @if(Route::currentRouteName() == 'dashboard.files') border-dark bg-light @else bg-white @endif" link="{{ route('dashboard.files') }}" onclick="openTab(this)">إدارة الملفات</li> 
                         @endcanany
                     </ul>
                 </div>
             </div>
             <div class="col-md-8 col-lg-9 col-xl-10 bg-white h-100 translate-1s p-0">
-                <div class="w-100 bg-white">
+                <div class="w-100 bg-light shadow">
                                 <div class="row m-0 p-3 ps-2 pe-2 p-md-2">
                                     <div class="col-6 col-md-4 d-flex align-items-center order-1">
                                         <button class="btn m-0 p-0 border-0 text-muted ms-2 focus-none"><li class="material-icons pt-2">menu</li></button>
@@ -52,7 +58,7 @@
                                     </div>
                                 </div> 
                 </div>
-                <div class="w-100 overflow-auto store-height scrolly p-2">
+                <div class="w-100 overflow-auto store-height scrolly p-2 mt-2">
                 @section('body')
                 @show
                 </div>

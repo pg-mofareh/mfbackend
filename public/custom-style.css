@@ -32,17 +32,18 @@ input {outline: none;border: none;}
   transition: width 1s ; 
 }
 .translate-1s{transition: width 0.5s ; }
-.store-height{ height: calc(100% - 60px);}
 .img-height{aspect-ratio: 1/1;}
 .scroll-none::-webkit-scrollbar { height: 0px; width: 0px; }
 
 @media only screen and (min-width:768px){
+  .store-height{ height: calc(100% - 77px);}
   .scrolly::-webkit-scrollbar { width: 9px;}
   .scrolly::-webkit-scrollbar-track { border-radius: 0px; box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3); }
   .scrolly::-webkit-scrollbar-thumb { border-radius: 0px; background-color: darkgray; }
   .carousel-height{aspect-ratio: 3/1;}
 }
 @media only screen and (max-width:767.9px){
+  .store-height{ height: calc(100% - 145px);}
   .scrolly::-webkit-scrollbar { width: 0px;}
   .scrolly::-webkit-scrollbar-track { border-radius: 0px; box-shadow: inset 0 0 0px rgba(0, 0, 0, 0.3); }
   .scrolly::-webkit-scrollbar-thumb { border-radius: 0px; background-color: darkgray; }

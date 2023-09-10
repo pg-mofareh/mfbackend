@@ -8,7 +8,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RolesAndPermissionsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\FilesController;
 
 # auth here
 Route::prefix('/auth')->group(function(){
@@ -42,6 +43,8 @@ Route::prefix('/dashboard')->middleware(['dashboard'])->group(function(){
         Route::get('/users', [DashboardController::class,'users'])->name('dashboard.users')->middleware(['can:users view']);
         Route::get('/roles', [DashboardController::class,'roles'])->name('dashboard.roles')->middleware(['can:roles view']);
         Route::get('/permissions', [DashboardController::class,'permissions'])->name('dashboard.permissions')->middleware(['can:permissions view']);
+        Route::get('/payment', [DashboardController::class,'payment'])->name('dashboard.payment')->middleware(['can:payment view']);
+        Route::get('/files/{directories?}', [DashboardController::class,'files'])->where('directories', '.*')->name('dashboard.files')->middleware(['can:files view']);
     });
 
     # users
@@ -80,6 +83,13 @@ Route::prefix('/dashboard')->middleware(['dashboard'])->group(function(){
             Route::post('/delete_func', [RolesAndPermissionsController::class,'permissions_delete_func'])->name('dashboard.permissions.delete-func')->middleware(['can:permissions delete']);
         });
     });
+
+    # files
+    Route::prefix('/files-system')->group(function(){
+        Route::get('/create/{directories?}', [FilesController::class,'create'])->where('directories', '.*')->name('dashboard.files.create')->middleware(['can:files create']);
+        Route::post('/create_func/{directories?}', [FilesController::class,'create_func'])->where('directories', '.*')->name('dashboard.files.create-func')->middleware(['can:files create']);
+        Route::get('/delete/{directories?}', [FilesController::class,'delete'])->where('directories', '.*')->name('dashboard.files.delete')->middleware(['can:files delete']);
+    });
 });
 
 Route::prefix('/documentation')->middleware(['documentation'])->group(function(){
@@ -90,8 +100,9 @@ Route::prefix('/documentation')->middleware(['documentation'])->group(function()
 });
 
 
-Route::prefix('/')->middleware(['can:public'])->group(function(){
+Route::prefix('/')->group(function(){
     Route::prefix('')->group(function(){
-        Route::get('/', function(){ return view('main.home'); })->name('main');
+        Route::get('/', [PublicController::class,'main'])->name('main');
+        Route::get('/update-status', [PublicController::class,'update_status'])->name('update.status');
     });
 });
