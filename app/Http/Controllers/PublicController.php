@@ -1,22 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
-use Ixudra\Curl\Facades\Curl;
+use App\Models\Products;
+use App\Models\Categories;
+use App\Models\Files;
+use App\Models\Coupons;
+use App\Models\User;
+use DB;
 class PublicController extends Controller
 {
-    function main(){ 
-        #$response = Curl::to('https://mofareh.net/api/apps/tabs/home/get')->asJson()->post();
-        #$data = $response->data->random;
-        
-        return view('main.home',['status'=>Config::get('site.status')]);
-    }
-
-    function update_status(){
-        $status = false;
-        Config::set('site.status', $status);
-        return "Site status updated to false new";
+    function main(){
+        return view('main.home');
     }
 }

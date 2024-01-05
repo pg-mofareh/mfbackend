@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background:#dbc1ac;
+}
+
+@media only screen and (max-width: 575.98px) {
+  .header-bg-image {
+      background:#967259;
+      background-image: url('http://127.0.0.1:8000/storage/stores/22/lUZVi3usGr.png');
+      background-size: auto 320px;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .header-info{ 
+      color: white;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0px;
+  }
+  .header-info-width{ width: auto; }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
+  .header-bg-image {
+      background:#967259;
+      background-image: url('http://127.0.0.1:8000/storage/stores/22/lUZVi3usGr.png');
+      background-size: auto 320px;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .header-info{ 
+      color: white;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0px;
+  }
+  .header-info-width{ width: auto; }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  .header-bg-image {
+      background:#967259;
+      background-image: url('http://127.0.0.1:8000/storage/stores/22/lUZVi3usGr.png');
+      background-size: auto 320px;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .header-info{ 
+      color: white;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0px;
+  }
+  .header-info-width{ width: auto; }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  .header-bg-image {
+      background:#967259;
+      background-image: url('http://127.0.0.1:8000/storage/stores/22/lUZVi3usGr.png');
+      background-size: auto 320px;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .header-info{ 
+      color: white;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0px;
+  }
+  .header-info-width{ width: auto; }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399.98px) {
+  .header-bg-image {
+      background:#967259;
+      background-image: url('http://127.0.0.1:8000/storage/stores/22/lUZVi3usGr.png');
+      background-size: auto 320px;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .header-info{ 
+      color: white;
+      justify-content: center;
+      align-items: center;
+      padding-top: 0px;
+  }
+  .header-info-width{ width: auto; }
+}
+
+@media only screen and (min-width: 1400px) {
+  .header-bg-image {
+      background:#967259;
+      background-image: url('http://127.0.0.1:8000/storage/stores/22/lUZVi3usGr.png');
+      background-size: auto 320px;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .header-info{ 
+      color: white;
+      justify-content: center;
+      align-items: center; 
+      padding-top: 0px;
+  }
+  .header-info-width{ width: auto; }
+}

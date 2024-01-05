@@ -70,5 +70,9 @@ class Kernel extends HttpKernel
         'dashboard' => \App\Http\Middleware\DashboardMiddleware::class, 
         'documentation' => \App\Http\Middleware\DocumentationMiddleware::class,
         'public' => \App\Http\Middleware\PublicMiddleware::class,
+        'joinus' => \App\Http\Middleware\JoinUsMiddleware::class,
+        'storesdashboard' => \App\Http\Middleware\StoresDashboardMiddleware::class,
+        'storespublicdisactive' => \App\Http\Middleware\StoresPublicDisActiveMiddleware::class,
+        'storespublic' => \App\Http\Middleware\StoresPublicMiddleware::class,
     ];
 }

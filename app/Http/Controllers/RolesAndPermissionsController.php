@@ -76,41 +76,4 @@ class RolesAndPermissionsController extends Controller
         return back()->withErrors([ 'name' => trans('permissions.msg.roles-delete-failed')]);
     }
 
-
-
-    function code_store(){
-        //$role = Role::create(['name' => 'user']);
-        /*$permissions = [
-            ['name' => 'users create'],
-            ['name' => 'users view'],
-            ['name' => 'users edit'],
-            ['name' => 'users delete']
-        ];*/
-        //$newPermissions = Permission::create(['name' => 'users delete']);
-        //$role = Role::findByName('admin');
-        //$role->syncPermissions(['users create', 'users view','users edit']);
-
-                //$role = Role::findByName('super admin'); // Retrieve the role from the database
-        //$permission = Permission::findByName('users create'); // Retrieve the permission from the database
-        //$role->revokePermissionTo($permission);
-
-        //$role = Role::findByName('super admin');
-
-                    /*
-            if($user->roles[0]->hasAnyRole('super admin', 'admin')){
-                return 'success login';
-                $req->session()->regenerate();
-                return redirect()->route('/')
-                    ->withSuccess('You have successfully logged in!');
-            }
-            */
-        # $role = $user->assignRole('super admin');
-
-        $user = User::where('id','=',1)->first();
-        $user->roles[0]->assignRole('super admin');
-        if($user){
-            return 'create permissions success';
-        }
-        return 'create permissions faild';
-    }
 }

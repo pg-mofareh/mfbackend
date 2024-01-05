@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هذه الصفحة غير موجودة</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        #center {
-        }
-    </style>
-</head>
-<body>
+@extends('errors.layout')
+@section('title', "هذه الصفحة غير موجودة")
+@section('body')
     <div class="text-muted" id="center">
-        <div class="text-center"><li class="material-icons" style="font-size:100px;">error</li></div>
-        <div>هذه الصفحة غير موجودة</div>
+        <div class="text-center">
+            <div id="lottie" class="w-100"></div>
+        </div>
+        <div class="text-center fs-5">هذه الصفحة غير موجودة, <a href="/" class=" text-decoration-none">الرئيسية</a></div>
     </div>
-</body>
-</html>
+@endsection
+@section('script')
+    <script>
+        var animation = bodymovin.loadAnimation({
+            container: document.getElementById('lottie'),
+            path: "{{ URL::to('/') }}{{ env('APP_PUBLIC') }}/lottie/not-found.json",
+            renderer: 'svg',
+            loop: false,
+            autoplay: true, 
+        });
+    </script>
+@endsection

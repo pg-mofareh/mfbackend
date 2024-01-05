@@ -3,12 +3,30 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
+    <meta name="description" content="منصة تتيح خدمات متنوعة للمتاجر">
+    <link rel="icon" type="image" href="{{ env('APP_ICON') }}">
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="{{ URL::to('/') }}{{ env('APP_PUBLIC') }}/custom-style.css" rel="stylesheet">
+    <!-- og meta -->
+    <meta property="og:title" content="منصة منيو">
+    <meta property="og:description" content="منصة تتيح خدمات متنوعة للمتاجر">
+    <meta property="og:image" content="{{ asset(env('APP_ICON')) }}">
+    <meta property="og:url" content="{{ route('main') }}">
+    <meta property="og:type" content="website">
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@_MoSalah_1">
+    <meta name="twitter:title" content="منصة منيو">
+    <meta name="twitter:description" content="منصة تتيح خدمات متنوعة للمتاجر">
+    <meta name="twitter:image" content="{{ asset(env('APP_ICON')) }}">
+    <meta name="twitter:image:alt" content="منصة منيو">
+    <link href="{{ env('BOOTSTRAP_CSS_PATH') }}" rel="stylesheet">
+    <link href="{{ env('OWN_MAIN_CSS_PATH') }}" rel="stylesheet">
+    <link href="{{ env('MATERIAL_ICONS_PATH') }}" rel="stylesheet">
+    <style>
+        .dropdown .btn::after {
+            content: none;
+        }
+    </style>
     @section('head')
     @show
 </head>
@@ -16,10 +34,44 @@
     
     @section('body')
     @show
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+    <script src="{{ env('JQUERY_PATH') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search-form').submit(function(event) {
+                event.preventDefault();
+                var inputValue = $(this).find('input').val();
+                var searchUrl = '/search/' + encodeURIComponent(inputValue);
+                window.location.href = searchUrl;
+            });
+
+            function updateSearchHeight() {
+                var screenHeight = $(window).height();
+                var navbarHeight = $("#navbar").height();
+                var footerHeight = $("#footer").height();
+                var scrollPosition = $(window).scrollTop();
+                
+
+                var minH = screenHeight-navbarHeight-footerHeight;
+                $("#subBody").css('min-height', minH);
+            }
+            updateSearchHeight();
+            $(window).scroll(function () {
+                updateSearchHeight();
+            });
+            $(window).resize(function () {
+                updateSearchHeight();
+            });
+
+            $("#menu-button").click(function () {
+                $("#navbar-ul-box").slideToggle();
+            });
+
+            $("#menu-stores-button").click(function () {
+                $("#navbar-stores-ul-box").slideToggle();
+            });
+        });
+    </script>
     @section('script')
     @show
 </body>

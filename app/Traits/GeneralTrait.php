@@ -4,7 +4,7 @@ namespace App\Traits;
 use Illuminate\Support\Facades\Storage;
 use Spatie\Sitemap\SitemapGenerator;
 use Spatie\Sitemap\Tags\Url;
-use App\Models\Posts;
+use App\Models\History;
 use App\Models\Categories;
 trait GeneralTrait
 {
@@ -93,5 +93,14 @@ trait GeneralTrait
         }
 
         return array('contents'=>$filesAndFolders,'directories_line'=>$directories_line,'reply'=>$reply);
+    }
+
+    function recordHistory($table,$description){
+        $user = auth()->user();
+        History::create([
+            'by'=>$user->id,
+            'table'=>$table,
+            'description'=>$description,
+        ]);
     }
 }

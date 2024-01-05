@@ -9,6 +9,9 @@ class Files extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'title',
+        'store',
+        'kind',
         'name',
         'extension',
         'directories'
